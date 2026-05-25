@@ -1,73 +1,73 @@
-# React + TypeScript + Vite
+# Briam Vanegas — Professional Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website for **Briam Vanegas**, Full Stack Developer and AI Enthusiast based in Medellín, Colombia. Built to showcase my experience, projects, and technical skills in a clean, animated single-page experience.
 
-Currently, two official plugins are available:
+## About Me
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+I'm a Full Stack Developer with 1 year of experience and a strong passion for AI. I specialize in building applications that integrate LLMs, RAG pipelines, and intelligent systems using LangChain, LangFuse, and fine-tuning techniques. I've worked in fintech (Aeropay), robotics (Miso Robotics), and platform success (Uber Eats via Teleperformance).
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Bilingual (English / Spanish) with instant language switching
+- Animated hero with interactive particle text and canvas dot grid
+- Tilt-effect profile card with real-time pointer tracking
+- Scrollable experience timeline with spotlight cards
+- Skill carousel with devicon logos
+- AI-powered chatbot (OpenAI streaming) with session rate limiting and CV download
+- Animated gradient chatbot border using CSS `@property`
+- Fully responsive — mobile menu included
+- Dark minimal design with smooth Motion animations throughout
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React 19** + **TypeScript** + **Vite 8**
+- **Tailwind CSS v4** — utility-first, configured via `@tailwindcss/vite`
+- **Motion 12** (`motion/react`) — animations and transitions
+- **OpenAI API** — streaming chat completions via native `fetch`
+- **Lucide React** — icons
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+```bash
+# Install dependencies
+pnpm install
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start dev server
+pnpm dev
+
+# Production build
+pnpm build
+
+# Preview production build
+pnpm preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> Requires **pnpm**. Do not use npm or yarn.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Environment Variables
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Create a `.env` file at the root with:
+
+```env
+VITE_OPENAI_API_KEY=your_openai_api_key
 ```
+
+## Project Structure
+
+```
+src/
+├── components/         # Page sections and UI components
+│   └── ui/             # Reusable UI primitives (ProfileCard, DotGrid, etc.)
+├── context/            # Language context (ES/EN)
+├── data/
+│   ├── portfolio.ts    # Projects, experience, contact links
+│   └── translations.ts # All UI strings in ES and EN
+└── index.css           # Global styles and custom animations
+assets/                 # Static files served at root (CV, avatar, favicon)
+```
+
+## Contact
+
+- Email: santigovanegas11@gmail.com
+- GitHub: [github.com/c0dy8](https://github.com/c0dy8)
+- LinkedIn: [linkedin.com/in/briam-santiago-vanegas-morales-260652405](https://www.linkedin.com/in/briam-santiago-vanegas-morales-260652405)
