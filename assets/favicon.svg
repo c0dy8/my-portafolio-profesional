@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark rounded square background -->
+  <rect width="32" height="32" rx="7" fill="#09090b"/>
+  <rect width="32" height="32" rx="7" fill="none" stroke="#27272a" stroke-width="1"/>
+
+  <!-- Terminal chevron > -->
+  <path d="M6.5 10.5 L13.5 16 L6.5 21.5"
+        stroke="#ffffff" stroke-width="2.4"
+        stroke-linecap="round" stroke-linejoin="round"
+        fill="none"/>
+
+  <!-- Blinking cursor _ -->
+  <rect x="16.5" y="19.5" width="9" height="2.4" rx="1.2" fill="#ffffff"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="388" height="540">
+  <rect width="388" height="540" fill="black"/>
+
+  <!-- scattered </> icons at different sizes and rotations -->
+
+  <text x="38"  y="128" font-family="monospace" font-size="38" font-weight="700" fill="white" opacity="0.75" transform="rotate(-8,  38, 128)">&lt;/&gt;</text>
+  <text x="255" y="105" font-family="monospace" font-size="26" font-weight="700" fill="white" opacity="0.65" transform="rotate(6,  255, 105)">&lt;/&gt;</text>
+  <text x="155" y="235" font-family="monospace" font-size="20" font-weight="700" fill="white" opacity="0.55" transform="rotate(-4, 155, 235)">&lt;/&gt;</text>
+  <text x="270" y="310" font-family="monospace" font-size="32" font-weight="700" fill="white" opacity="0.70" transform="rotate(10, 270, 310)">&lt;/&gt;</text>
+  <text x="48"  y="368" font-family="monospace" font-size="22" font-weight="700" fill="white" opacity="0.60" transform="rotate(-6,  48, 368)">&lt;/&gt;</text>
+  <text x="190" y="430" font-family="monospace" font-size="28" font-weight="700" fill="white" opacity="0.65" transform="rotate(5,  190, 430)">&lt;/&gt;</text>
+  <text x="300" y="195" font-family="monospace" font-size="18" font-weight="700" fill="white" opacity="0.50" transform="rotate(-12, 300, 195)">&lt;/&gt;</text>
+  <text x="82"  y="475" font-family="monospace" font-size="20" font-weight="700" fill="white" opacity="0.55" transform="rotate(8,   82, 475)">&lt;/&gt;</text>
+  <text x="220" y="162" font-family="monospace" font-size="16" font-weight="700" fill="white" opacity="0.45" transform="rotate(-5, 220, 162)">&lt;/&gt;</text>
+  <text x="318" y="460" font-family="monospace" font-size="24" font-weight="700" fill="white" opacity="0.60" transform="rotate(7,  318, 460)">&lt;/&gt;</text>
+</svg>
