@@ -107,7 +107,7 @@ export function Contact() {
                   </div>
                   <div>
                     <p className="text-white group-hover:text-zinc-900 font-semibold text-sm transition-colors duration-200">{label}</p>
-                    <p className="text-zinc-500 group-hover:text-zinc-600 text-sm font-mono transition-colors duration-200">{value}</p>
+                    <p className="text-zinc-500 group-hover:text-zinc-600 text-sm font-mono transition-colors duration-200 truncate max-w-[180px] sm:max-w-none">{value}</p>
                   </div>
                 </div>
 

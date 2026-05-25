@@ -7,6 +7,17 @@ import { useLanguage } from "@/context/LanguageContext"
 export function Hero() {
   const { t } = useLanguage()
   const [titleIndex, setTitleIndex] = useState(0)
+  const [fontSize, setFontSize] = useState(120)
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth
+      setFontSize(w < 480 ? 60 : w < 768 ? 82 : 120)
+    }
+    update()
+    window.addEventListener('resize', update)
+    return () => window.removeEventListener('resize', update)
+  }, [])
 
   useEffect(() => {
     setTitleIndex(0)
@@ -79,7 +90,7 @@ export function Hero() {
           <MagicTextReveal
             text="Briam"
             color="rgba(255, 255, 255, 1)"
-            fontSize={120}
+            fontSize={fontSize}
             fontFamily="Space Grotesk, sans-serif"
             fontWeight={700}
             spread={35}
@@ -91,7 +102,7 @@ export function Hero() {
           <MagicTextReveal
             text="Vanegas"
             color="rgba(130, 130, 140, 1)"
-            fontSize={120}
+            fontSize={fontSize}
             fontFamily="Space Grotesk, sans-serif"
             fontWeight={700}
             spread={35}

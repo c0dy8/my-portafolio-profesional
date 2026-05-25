@@ -271,9 +271,9 @@ export function ChatBot() {
         {isOpen && (
           <motion.div
             ref={chatPanelRef}
-            className="chat-gradient-border fixed bottom-24 right-6 z-40 w-[360px] rounded-2xl"
+            className="chat-gradient-border fixed bottom-24 right-4 sm:right-6 z-40 w-[calc(100vw-2rem)] max-w-[360px] rounded-2xl"
             style={{
-              height: '500px',
+              height: 'min(500px, calc(100svh - 8rem))',
               padding: '2px',
               boxShadow: '0 0 40px rgba(192,132,252,0.3), 0 25px 50px rgba(0,0,0,0.8)',
               originX: 1,
