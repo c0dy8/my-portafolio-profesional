@@ -120,16 +120,6 @@ export function Contact() {
         </div>
       </div>
 
-      <motion.div
-        className="max-w-5xl mx-auto mt-24 pt-8 border-t border-zinc-800/50 flex flex-col sm:flex-row items-center justify-between gap-4"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-      >
-        <p className="text-zinc-600 text-sm font-mono">{t.contact.footer}</p>
-        <p className="text-zinc-700 text-xs font-mono">{t.contact.built}</p>
-      </motion.div>
     </section>
   )
 }

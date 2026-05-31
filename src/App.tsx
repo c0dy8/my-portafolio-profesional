@@ -6,6 +6,7 @@ import { Skills } from "@/components/Skills"
 import { Projects } from "@/components/Projects"
 import { Experience } from "@/components/Experience"
 import { Contact } from "@/components/Contact"
+import { Footer } from "@/components/Footer"
 import { ChatBot } from "@/components/ChatBot"
 import { LanguageSwitcher } from "@/components/LanguageSwitcher"
 
@@ -19,6 +20,7 @@ function App() {
       <Projects />
       <Experience />
       <Contact />
+      <Footer />
       <ChatBot />
       <LanguageSwitcher />
     </LanguageProvider>
