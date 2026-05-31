@@ -55,5 +55,5 @@ export const experience = [
 export const contact = {
   email: "santigovanegas11@gmail.com",
   github: "https://github.com/c0dy8",
-  linkedin: "https://www.linkedin.com/in/briam-santiago-vanegas-morales-260652405",
+  linkedin: "https://www.linkedin.com/in/briam-vanegas/",
 }
