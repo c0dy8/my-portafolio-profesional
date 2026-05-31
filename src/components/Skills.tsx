@@ -130,21 +130,32 @@ export function Skills() {
 
       {/* Languages */}
       <motion.div
-        className="max-w-5xl mx-auto px-6 mt-14 flex flex-wrap gap-3"
+        className="max-w-5xl mx-auto px-6 mt-14 flex flex-wrap gap-4"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-40px" }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-zinc-700/80 bg-zinc-900/60 backdrop-blur-sm">
-          <span className="text-base leading-none">🗣️</span>
-          <span className="text-zinc-300 text-sm font-semibold">Español</span>
-          <span className="text-zinc-600 text-xs font-mono">nativo</span>
+        {/* Español */}
+        <div className="flex items-center gap-3 px-5 py-3 rounded-2xl border border-zinc-700/60 bg-zinc-900/80 backdrop-blur-sm">
+          <img src="https://flagcdn.com/co.svg" alt="Colombia" className="w-6 h-4 object-cover rounded-[3px] shadow-sm" />
+          <div className="flex flex-col leading-tight">
+            <span className="text-white text-sm font-bold tracking-tight">Español</span>
+            <span className="text-zinc-500 text-[11px] font-mono">Nativo</span>
+          </div>
         </div>
-        <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-zinc-700/80 bg-zinc-900/60 backdrop-blur-sm">
-          <span className="text-base leading-none">🇺🇸</span>
-          <span className="text-zinc-300 text-sm font-semibold">English</span>
-          <span className="text-zinc-500 text-xs font-mono border border-zinc-700 rounded px-1.5 py-0.5">C1</span>
+
+        {/* English */}
+        <div className="relative flex items-center gap-3 px-5 py-3 rounded-2xl border border-zinc-700/60 bg-zinc-900/80 backdrop-blur-sm overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 to-blue-500/5" />
+          <img src="https://flagcdn.com/us.svg" alt="United States" className="relative z-10 w-6 h-4 object-cover rounded-[3px] shadow-sm" />
+          <div className="relative z-10 flex flex-col leading-tight">
+            <span className="text-white text-sm font-bold tracking-tight">English</span>
+            <span className="text-zinc-500 text-[11px] font-mono">Advanced</span>
+          </div>
+          <span className="relative z-10 ml-1 text-xs font-bold font-mono px-2 py-0.5 rounded-md bg-violet-500/20 border border-violet-500/40 text-violet-300">
+            C1
+          </span>
         </div>
       </motion.div>
     </section>
