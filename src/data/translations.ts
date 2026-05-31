@@ -9,7 +9,7 @@ export const translations = {
     },
     hero: {
       titles: ['Desarrollador Full Stack', 'Entusiasta IA', 'LLM Builder'],
-      subtitle: 'Construyendo el puente entre software e inteligencia artificial — desde Medellín 🇨🇴',
+      subtitle: 'Construyendo el puente entre software e inteligencia artificial — desde Medellín, Colombia',
       cta_projects: 'Ver proyectos',
       cta_contact: 'Contacto',
     },
@@ -64,7 +64,7 @@ export const translations = {
     },
     hero: {
       titles: ['Full Stack Developer', 'AI Enthusiast', 'LLM Builder'],
-      subtitle: 'Building the bridge between software and artificial intelligence — from Medellín 🇨🇴',
+      subtitle: 'Building the bridge between software and artificial intelligence — from Medellín, Colombia',
       cta_projects: 'View projects',
       cta_contact: 'Contact',
     },

@@ -66,8 +66,9 @@ export function Hero() {
           </span>
 
           {/* Flag + city */}
-          <span className="text-zinc-300 text-xs font-semibold tracking-wide">
-            🇨🇴 Medellín, Colombia
+          <span className="text-zinc-300 text-xs font-semibold tracking-wide flex items-center gap-1.5">
+            <img src="https://flagcdn.com/co.svg" alt="Colombia" className="w-4 h-3 object-cover rounded-[2px]" />
+            Medellín, Colombia
           </span>
 
           {/* Divider */}
@@ -110,11 +111,12 @@ export function Hero() {
             density={4}
             resetOnMouseLeave={false}
             fillWidth
+            style={{ marginTop: `-${Math.round(fontSize * 0.15)}px` }}
           />
         </motion.div>
 
         {/* Rotating title */}
-        <div className="h-8 md:h-10 flex items-center justify-center overflow-hidden mb-8">
+        <div className="h-8 md:h-10 flex items-center justify-center overflow-hidden mt-6 mb-8">
           <AnimatePresence mode="wait">
             <motion.span
               key={`${titleIndex}-${t.hero.titles[titleIndex]}`}
