@@ -16,7 +16,7 @@ export const translations = {
     about: {
       label: '// sobre mí',
       heading: 'Hola, soy',
-      bio: 'Soy Briam, desarrollador Full Stack con 1 año de experiencia y una fuerte inclinación hacia el mundo de la IA. Me especializo en construir aplicaciones que integran LLMs, RAG pipelines y sistemas inteligentes usando LangChain, LangFuse y técnicas de fine-tuning.',
+      bio: 'Soy Briam, desarrollador Full Stack con 1 año de experiencia y una fuerte inclinación hacia el mundo de la IA. Me especializo en construir aplicaciones que integran LLMs, RAG pipelines y sistemas inteligentes usando LangChain, LangFuse y técnicas de fine-tuning. Hablo español nativo e inglés C1.',
       status: 'Disponible',
       contact_text: 'Contactar',
       download_cv: 'Descargar CV',
@@ -71,7 +71,7 @@ export const translations = {
     about: {
       label: '// about',
       heading: "Hi, I'm",
-      bio: "I'm Briam, a Full Stack Developer with 1 year of experience and a strong passion for AI. I specialize in building applications that integrate LLMs, RAG pipelines, and intelligent systems using LangChain, LangFuse, and fine-tuning techniques.",
+      bio: "I'm Briam, a Full Stack Developer with 1 year of experience and a strong passion for AI. I specialize in building applications that integrate LLMs, RAG pipelines, and intelligent systems using LangChain, LangFuse, and fine-tuning techniques. Native Spanish speaker, C1 English.",
       status: 'Available',
       contact_text: 'Contact',
       download_cv: 'Download CV',

@@ -127,6 +127,26 @@ export function Skills() {
           {row2.map((skill, i) => <SkillBadge key={`r2-${i}`} skill={skill} />)}
         </div>
       </motion.div>
+
+      {/* Languages */}
+      <motion.div
+        className="max-w-5xl mx-auto px-6 mt-14 flex flex-wrap gap-3"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-zinc-700/80 bg-zinc-900/60 backdrop-blur-sm">
+          <span className="text-base leading-none">🗣️</span>
+          <span className="text-zinc-300 text-sm font-semibold">Español</span>
+          <span className="text-zinc-600 text-xs font-mono">nativo</span>
+        </div>
+        <div className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-zinc-700/80 bg-zinc-900/60 backdrop-blur-sm">
+          <span className="text-base leading-none">🇺🇸</span>
+          <span className="text-zinc-300 text-sm font-semibold">English</span>
+          <span className="text-zinc-500 text-xs font-mono border border-zinc-700 rounded px-1.5 py-0.5">C1</span>
+        </div>
+      </motion.div>
     </section>
   )
 }
