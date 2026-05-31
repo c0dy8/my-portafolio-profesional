@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react'
 import { X, Send, Sparkles, MessageCircle, FileDown } from 'lucide-react'
 import Magnet from '@/components/ui/Magnet'
 import { useLanguage } from '@/context/LanguageContext'
+import ReactMarkdown from 'react-markdown'
 
 const SYSTEM_PROMPT = `Eres el asistente de portafolio de Briam Vanegas. Representas a Briam de forma profesional y cercana. Tu misión es ayudar a reclutadores, clientes y visitantes a conocer su perfil, habilidades y proyectos.
 
@@ -331,7 +332,23 @@ export function ChatBot() {
                               ? 'bg-white text-zinc-900 rounded-br-sm'
                               : 'bg-zinc-900 text-zinc-200 border border-zinc-800 rounded-bl-sm'
                           }`}>
-                            {msg.content}
+                            {msg.role === 'assistant' ? (
+                              <ReactMarkdown
+                                components={{
+                                  p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                                  strong: ({ children }) => <strong className="font-bold text-white">{children}</strong>,
+                                  em: ({ children }) => <em className="italic text-zinc-300">{children}</em>,
+                                  ul: ({ children }) => <ul className="list-disc list-inside space-y-0.5 my-1">{children}</ul>,
+                                  ol: ({ children }) => <ol className="list-decimal list-inside space-y-0.5 my-1">{children}</ol>,
+                                  li: ({ children }) => <li className="text-zinc-300">{children}</li>,
+                                  code: ({ children }) => <code className="bg-zinc-800 text-zinc-300 px-1 rounded text-xs font-mono">{children}</code>,
+                                }}
+                              >
+                                {msg.content}
+                              </ReactMarkdown>
+                            ) : (
+                              msg.content
+                            )}
                           </div>
                         )}
                       </motion.div>
