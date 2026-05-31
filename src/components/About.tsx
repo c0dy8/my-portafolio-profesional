@@ -49,7 +49,7 @@ export function About() {
             </p>
 
             {/* Language bars */}
-            <div className="flex flex-col gap-3 mb-8">
+            <div className="flex flex-col gap-3 mb-8 max-w-xs">
               {[
                 { lang: 'Español', pct: 100 },
                 { lang: 'English', pct: 85 },
