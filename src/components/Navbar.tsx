@@ -6,7 +6,6 @@ import { useLanguage } from "@/context/LanguageContext"
 
 export function Navbar() {
   const { t } = useLanguage()
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [active, setActive] = useState("")
 
@@ -20,7 +19,6 @@ export function Navbar() {
 
   useEffect(() => {
     const onScroll = () => {
-      setScrolled(window.scrollY > 30)
       let current = ""
       for (const { href } of links) {
         const el = document.getElementById(href.slice(1))
