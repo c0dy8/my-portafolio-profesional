@@ -48,6 +48,30 @@ export function About() {
               {t.about.bio}
             </p>
 
+            {/* Language bars */}
+            <div className="flex flex-col gap-3 mb-8">
+              {[
+                { lang: 'Español', pct: 100 },
+                { lang: 'English', pct: 85 },
+              ].map(({ lang, pct }) => (
+                <div key={lang}>
+                  <div className="flex justify-between items-center mb-1.5">
+                    <span className="text-zinc-300 text-sm font-semibold">{lang}</span>
+                    <span className="text-zinc-500 text-xs font-mono">{pct}%</span>
+                  </div>
+                  <div className="h-1.5 w-full bg-zinc-800 rounded-full overflow-hidden">
+                    <motion.div
+                      className="h-full rounded-full bg-gradient-to-r from-zinc-400 to-white"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${pct}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.2 }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+
             <motion.a
               href="/CV.pdf"
               download="CV-Briam-Vanegas.pdf"
