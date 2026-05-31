@@ -58,8 +58,8 @@ export function Footer() {
   return (
     <footer className="relative w-full border-t border-zinc-800/60 bg-[radial-gradient(35%_128px_at_50%_0%,rgba(255,255,255,0.04),transparent)] px-6 py-12 lg:py-16">
       {/* Top glow line */}
-      <div className="absolute top-0 right-1/2 left-1/2 h-px w-2/5 -translate-x-1/2 -translate-y-px rounded-full bg-white/60 blur-sm" />
-      <div className="absolute top-0 right-1/2 left-1/2 h-3 w-1/4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/20 blur-xl" />
+      <div className="absolute top-0 right-1/2 left-1/2 h-px w-2/5 -translate-x-1/2 -translate-y-px rounded-full bg-white/90" />
+      <div className="absolute top-0 right-1/2 left-1/2 h-5 w-1/3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/30 blur-xl" />
 
       <div className="max-w-5xl mx-auto grid gap-10 xl:grid-cols-3 xl:gap-8">
 
