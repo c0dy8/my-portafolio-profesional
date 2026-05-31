@@ -33,7 +33,7 @@ const LinkedInIcon = () => (
 const links = [
   { icon: GmailIcon, label: "Email", href: `mailto:${contact.email}`, value: contact.email },
   { icon: GitHubIcon, label: "GitHub", href: contact.github, value: "github.com/c0dy8" },
-  { icon: LinkedInIcon, label: "LinkedIn", href: contact.linkedin, value: "linkedin.com/in/briam-santiago-vanegas-morales" },
+  { icon: LinkedInIcon, label: "LinkedIn", href: contact.linkedin, value: "linkedin.com/in/briam-vanegas" },
 ]
 
 export function Contact() {
