@@ -103,9 +103,9 @@ async function streamOpenAI(
   }
 }
 
-const CV_KEYWORDS = ['cv', 'hoja de vida', 'resume', 'curriculum', 'currículum', 'descargar cv', 'download cv', 'genera', 'generar', 'generate']
+export const CV_KEYWORDS = ['cv', 'hoja de vida', 'resume', 'curriculum', 'currículum', 'descargar cv', 'download cv', 'genera', 'generar', 'generate']
 
-function isCVRequest(text: string) {
+export function isCVRequest(text: string) {
   const lower = text.toLowerCase()
   return CV_KEYWORDS.some(kw => lower.includes(kw))
 }
