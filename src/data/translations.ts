@@ -1,7 +1,7 @@
 export const translations = {
   es: {
     nav: {
-      about: 'Acerca de',
+      about: 'Sobre mí',
       skills: 'Habilidades',
       projects: 'Proyectos',
       experience: 'Experiencia',
