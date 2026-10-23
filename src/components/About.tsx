@@ -73,7 +73,7 @@ export function About() {
             </div>
 
             <motion.a
-              href="/CV.pdf"
+              href={`${import.meta.env.BASE_URL}CV.pdf`}
               download="CV-Briam-Vanegas.pdf"
               whileHover={{ scale: 1.03, y: -2 }}
               whileTap={{ scale: 0.97 }}
@@ -93,8 +93,8 @@ export function About() {
             viewport={{ once: true, margin: "-60px" }}
           >
             <ProfileCard
-              avatarUrl="/briam.jpg"
-              iconUrl="/icon-pattern.svg"
+              avatarUrl={`${import.meta.env.BASE_URL}briam.jpg`}
+              iconUrl={`${import.meta.env.BASE_URL}icon-pattern.svg`}
               name="Briam Vanegas"
               title="Full Stack Developer & AI Engineer"
               handle="bsvanegas"

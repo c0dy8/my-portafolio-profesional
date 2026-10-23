@@ -27,7 +27,7 @@ const ROW2: Skill[] = [
   { name: "RAG",        abbr: "RAG" },
   { name: "LLMs",       abbr: "LLM" },
   { name: "IA / ML",    abbr: "AI" },
-  { name: "n8n",        src: "/n8n.svg" },
+  { name: "n8n",        src: `${import.meta.env.BASE_URL}n8n.svg` },
   { name: "Git",        src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
 ]
 

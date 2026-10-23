@@ -317,7 +317,7 @@ export function ChatBot() {
                       >
                         {msg.action === 'download_cv' ? (
                           <motion.a
-                            href="/CV.pdf"
+                            href={`${import.meta.env.BASE_URL}CV.pdf`}
                             download="CV-Briam-Vanegas.pdf"
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
