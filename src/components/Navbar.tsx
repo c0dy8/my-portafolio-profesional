@@ -3,18 +3,20 @@ import { motion, AnimatePresence } from "motion/react"
 import { User, Code2, Layers, Briefcase, Mail } from "lucide-react"
 import { GradientMenu } from "@/components/ui/gradient-menu"
 import { useLanguage } from "@/context/LanguageContext"
+import { useIntroRevealed } from "@/context/intro"
 
 export function Navbar() {
   const { t } = useLanguage()
+  const ready = useIntroRevealed()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [active, setActive] = useState("")
 
   const links = [
-    { title: t.nav.about,      href: "#about",      icon: User,     gradientFrom: "#e2e8f0", gradientTo: "#94a3b8" },
-    { title: t.nav.skills,     href: "#skills",     icon: Code2,    gradientFrom: "#f8fafc", gradientTo: "#64748b" },
-    { title: t.nav.projects,   href: "#projects",   icon: Layers,   gradientFrom: "#cbd5e1", gradientTo: "#475569" },
-    { title: t.nav.experience, href: "#experience", icon: Briefcase,gradientFrom: "#e2e8f0", gradientTo: "#6b7280" },
-    { title: t.nav.contact,    href: "#contact",    icon: Mail,     gradientFrom: "#f1f5f9", gradientTo: "#94a3b8" },
+    { title: t.nav.about,      href: "#about",      icon: User },
+    { title: t.nav.skills,     href: "#skills",     icon: Code2 },
+    { title: t.nav.projects,   href: "#projects",   icon: Layers },
+    { title: t.nav.experience, href: "#experience", icon: Briefcase },
+    { title: t.nav.contact,    href: "#contact",    icon: Mail },
   ]
 
   useEffect(() => {
@@ -33,9 +35,9 @@ export function Navbar() {
   return (
     <>
       <motion.header
-        className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 h-16"
+        className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 h-16 bg-black/80 backdrop-blur-md border-b border-zinc-800/60 md:bg-transparent md:backdrop-blur-none md:border-transparent"
         initial={{ y: -64, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={ready ? { y: 0, opacity: 1 } : undefined}
         transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {/* Logo */}

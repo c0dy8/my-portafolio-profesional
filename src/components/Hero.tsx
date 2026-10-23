@@ -3,11 +3,22 @@ import { motion, AnimatePresence } from "motion/react"
 import { MagicTextReveal } from "@/components/ui/magic-text-reveal"
 import DotGrid from "@/components/ui/DotGrid"
 import { useLanguage } from "@/context/LanguageContext"
+import { useIntroRevealed } from "@/context/intro"
 
 export function Hero() {
   const { t } = useLanguage()
+  // Hold the entrance animations until the intro loader starts revealing the page.
+  const ready = useIntroRevealed()
   const [titleIndex, setTitleIndex] = useState(0)
   const [fontSize, setFontSize] = useState(120)
+  const [touchReveal, setTouchReveal] = useState(false)
+
+  // Touch screens can't hover the name to reveal it: reveal it once the hero has faded in.
+  useEffect(() => {
+    if (!ready || !window.matchMedia('(hover: none)').matches) return
+    const id = setTimeout(() => setTouchReveal(true), 1200)
+    return () => clearTimeout(id)
+  }, [ready])
 
   useEffect(() => {
     const update = () => {
@@ -52,7 +63,7 @@ export function Hero() {
         <motion.div
           className="inline-flex items-center gap-3 mb-10 border border-zinc-800 rounded-full px-5 py-2 bg-zinc-900/60 backdrop-blur-sm"
           initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           {/* Live pulse dot */}
@@ -85,7 +96,7 @@ export function Hero() {
           className="w-full flex flex-col items-center mb-2"
           style={{ gap: 0, marginTop: '-8px' }}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          animate={ready ? { opacity: 1 } : undefined}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <MagicTextReveal
@@ -98,6 +109,7 @@ export function Hero() {
             speed={0.4}
             density={4}
             resetOnMouseLeave={false}
+            revealed={touchReveal}
             fillWidth
           />
           <MagicTextReveal
@@ -110,6 +122,7 @@ export function Hero() {
             speed={0.4}
             density={4}
             resetOnMouseLeave={false}
+            revealed={touchReveal}
             fillWidth
             style={{ marginTop: `-${Math.round(fontSize * 0.15)}px` }}
           />
@@ -135,7 +148,7 @@ export function Hero() {
         <motion.p
           className="text-zinc-500 text-base md:text-lg max-w-lg mx-auto mb-12 leading-relaxed"
           initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : undefined}
           transition={{ delay: 1.0, duration: 0.6 }}
         >
           {t.hero.subtitle}
@@ -145,7 +158,7 @@ export function Hero() {
         <motion.div
           className="flex items-center justify-center gap-4 flex-wrap"
           initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={ready ? { opacity: 1, y: 0 } : undefined}
           transition={{ delay: 1.2, duration: 0.6 }}
         >
           <motion.a
@@ -164,20 +177,6 @@ export function Hero() {
           >
             {t.hero.cta_contact}
           </motion.a>
-        </motion.div>
-
-        {/* Scroll indicator */}
-        <motion.div
-          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.8 }}
-        >
-          <motion.div
-            className="w-px h-14 bg-gradient-to-b from-transparent to-zinc-600 origin-top"
-            animate={{ scaleY: [0, 1, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-          />
         </motion.div>
       </div>
     </section>

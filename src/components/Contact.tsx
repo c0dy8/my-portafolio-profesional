@@ -101,13 +101,13 @@ export function Contact() {
                   className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300 ease-out rounded-[10px]"
                 />
 
-                <div className="relative flex items-center gap-4">
+                <div className="relative flex items-center gap-4 min-w-0">
                   <div className="w-10 h-10 rounded-lg bg-zinc-800/60 group-hover:bg-black/8 flex items-center justify-center flex-shrink-0 text-zinc-300 group-hover:text-zinc-900 transition-colors duration-200">
                     <Icon />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <p className="text-white group-hover:text-zinc-900 font-semibold text-sm transition-colors duration-200">{label}</p>
-                    <p className="text-zinc-500 group-hover:text-zinc-600 text-sm font-mono transition-colors duration-200 truncate max-w-[180px] sm:max-w-none">{value}</p>
+                    <p className="text-zinc-500 group-hover:text-zinc-600 text-xs sm:text-sm font-mono transition-colors duration-200 truncate">{value}</p>
                   </div>
                 </div>
 

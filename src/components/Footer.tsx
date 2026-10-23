@@ -56,7 +56,7 @@ export function Footer() {
   ]
 
   return (
-    <footer className="relative w-full border-t border-zinc-800/60 bg-[radial-gradient(35%_128px_at_50%_0%,rgba(255,255,255,0.04),transparent)] px-6 py-12 lg:py-16">
+    <footer className="relative w-full border-t border-zinc-800/60 bg-[radial-gradient(35%_128px_at_50%_0%,rgba(255,255,255,0.04),transparent)] px-6 pt-12 pb-28 md:pb-12 lg:py-16">
       {/* Top glow line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-white/70 blur-sm" />
       <div className="absolute top-0 left-0 right-0 h-8 -translate-y-1/2 bg-white/20 blur-2xl" />

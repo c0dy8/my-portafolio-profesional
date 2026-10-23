@@ -43,7 +43,7 @@ export function Experience() {
 
         <div className="relative">
           <motion.div
-            className="absolute left-[19px] top-0 bottom-0 w-px origin-top"
+            className="absolute left-[19px] top-6 bottom-0 w-px origin-top"
             style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.15), rgba(255,255,255,0.02))" }}
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
@@ -63,7 +63,7 @@ export function Experience() {
                 viewport={{ once: true, margin: "-40px" }}
               >
                 <motion.div
-                  className="w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900 flex items-center justify-center flex-shrink-0 mt-1"
+                  className="relative z-10 w-10 h-10 rounded-full border border-zinc-700 bg-zinc-900 flex items-center justify-center flex-shrink-0 mt-1"
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}

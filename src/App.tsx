@@ -1,4 +1,5 @@
 import { LanguageProvider } from "@/context/LanguageContext"
+import { IntroLoader } from "@/components/Loader"
 import { Navbar } from "@/components/Navbar"
 import { Hero } from "@/components/Hero"
 import { About } from "@/components/About"
@@ -13,16 +14,18 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher"
 function App() {
   return (
     <LanguageProvider>
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
-      <Footer />
-      <ChatBot />
-      <LanguageSwitcher />
+      <IntroLoader>
+        <Navbar />
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <Experience />
+        <Contact />
+        <Footer />
+        <ChatBot />
+        <LanguageSwitcher />
+      </IntroLoader>
     </LanguageProvider>
   )
 }

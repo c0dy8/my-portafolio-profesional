@@ -5,7 +5,7 @@ interface Particle {
   y: number;
   originalX: number;
   originalY: number;
-  color: string;
+  rgb: string;
   opacity: number;
   originalAlpha: number;
   velocityX: number;
@@ -30,6 +30,8 @@ interface MagicTextRevealProps {
   speed?: number;
   density?: number;
   resetOnMouseLeave?: boolean;
+  /** Shows the text as if hovered, e.g. on touch screens, which have no hover. */
+  revealed?: boolean;
   fillWidth?: boolean;
   className?: string;
   style?: React.CSSProperties;
@@ -45,6 +47,7 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
   speed = 0.5,
   density = 4,
   resetOnMouseLeave = true,
+  revealed = false,
   fillWidth = false,
   className = "",
   style = {}
@@ -133,7 +136,7 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
             y: y + Math.sin(angle) * distance,
             originalX: x,
             originalY: y,
-            color: `rgba(${data[index]}, ${data[index + 1]}, ${data[index + 2]}, ${originalAlpha})`,
+            rgb: `rgb(${data[index]}, ${data[index + 1]}, ${data[index + 2]})`,
             opacity: originalAlpha * 0.3,
             originalAlpha,
             velocityX: 0, velocityY: 0,
@@ -168,6 +171,7 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
     const NOISE_SCALE = 0.6;
     const CHAOS_FACTOR = 1.3;
     const FADE_SPEED = 3.5;
+    const time = Date.now() * 0.001;
 
     particles.forEach(particle => {
       if (isHovered) {
@@ -184,7 +188,6 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
         particle.opacity = Math.max(0, particle.opacity - FADE_SPEED * deltaTime);
       } else {
         particle.floatingAngle += deltaTime * particle.floatingSpeed * (1 + Math.random() * CHAOS_FACTOR);
-        const time = Date.now() * 0.001;
         const uniqueOffset = particle.floatingSpeed * 2000;
         const noiseX = (
           Math.sin(time * particle.floatingSpeed + particle.floatingAngle) * 1.2 +
@@ -236,16 +239,17 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
   ) => {
     ctx.save();
     ctx.scale(globalDpr, globalDpr);
-    const particlesByColor = new Map<string, Array<{ x: number; y: number }>>();
+    // Opacity goes through globalAlpha (clamped like a CSS alpha) so no color string
+    // has to be built and parsed per particle every frame.
+    let fill = "";
     particles.forEach(particle => {
       if (particle.opacity <= 0) return;
-      const color = particle.color.replace(/[\d.]+\)$/, `${particle.opacity})`);
-      if (!particlesByColor.has(color)) particlesByColor.set(color, []);
-      particlesByColor.get(color)!.push({ x: particle.x / globalDpr, y: particle.y / globalDpr });
-    });
-    particlesByColor.forEach((positions, color) => {
-      ctx.fillStyle = color;
-      positions.forEach(({ x, y }) => ctx.fillRect(x, y, 1, 1));
+      if (particle.rgb !== fill) {
+        fill = particle.rgb;
+        ctx.fillStyle = fill;
+      }
+      ctx.globalAlpha = Math.min(1, particle.opacity);
+      ctx.fillRect(particle.x / globalDpr, particle.y / globalDpr, 1, 1);
     });
     ctx.restore();
   }, []);
@@ -266,6 +270,8 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
     renderParticles(ctx, particles, globalDpr);
   }, [wrapperSize, globalDpr, text, fontSize, fontFamily, fontWeight, color, transformedDensity, createParticles, renderParticles]);
 
+  const active = isHovered || revealed;
+
   useEffect(() => {
     const animate = (currentTime: number) => {
       const deltaTime = (currentTime - lastTimeRef.current) / 1000;
@@ -277,13 +283,13 @@ export const MagicTextReveal: React.FC<MagicTextRevealProps> = ({
         return;
       }
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      updateParticles(particlesRef.current, deltaTime, isHovered, showText, setShowText, spread, speed);
+      updateParticles(particlesRef.current, deltaTime, active, showText, setShowText, spread, speed);
       renderParticles(ctx, particlesRef.current, globalDpr);
       animationFrameRef.current = requestAnimationFrame(animate);
     };
     animationFrameRef.current = requestAnimationFrame(animate);
     return () => { if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current); };
-  }, [isHovered, showText, spread, speed, globalDpr, updateParticles, renderParticles]);
+  }, [active, showText, spread, speed, globalDpr, updateParticles, renderParticles]);
 
   useEffect(() => {
     const handleResize = () => {

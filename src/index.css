@@ -46,6 +46,8 @@ body {
 ::selection { background: rgba(255,255,255,0.15); color: #fff; }
 
 /* ── Skill carousel ── */
+/* Rows are content-wide (w-max) and hold an even number of copies, so -50% lands exactly
+   on a copy boundary. Half a row is ~2800px: 160s keeps the drift around 18px/s. */
 @keyframes scroll-left {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
@@ -54,8 +56,25 @@ body {
   0%   { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
-.skill-scroll-left  { animation: scroll-left  35s linear infinite; }
-.skill-scroll-right { animation: scroll-right 35s linear infinite; }
+.skill-scroll-left  { animation: scroll-left  160s linear infinite; }
+.skill-scroll-right { animation: scroll-right 160s linear infinite; }
 .skill-scroll-left:hover,
 .skill-scroll-right:hover { animation-play-state: paused; }
+
+/* ── Skill badge shine: a light streak sweeps across the icon once on hover ── */
+@keyframes skill-shine {
+  to { transform: translateX(250%) skewX(-20deg); }
+}
+.skill-shine {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 50%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.32) 50%, rgba(255,255,255,0.06) 70%, transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+}
+.group:hover .skill-shine { animation: skill-shine 0.8s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .skill-shine { animation: none; }
+}
 

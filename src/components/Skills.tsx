@@ -27,7 +27,7 @@ const ROW2: Skill[] = [
   { name: "RAG",        abbr: "RAG" },
   { name: "LLMs",       abbr: "LLM" },
   { name: "IA / ML",    abbr: "AI" },
-  { name: "n8n",        src: "https://github.com/n8n-io.png" },
+  { name: "n8n",        src: "/n8n.svg" },
   { name: "Git",        src: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" },
 ]
 
@@ -38,7 +38,7 @@ function repeat<T>(arr: T[], times = 4): T[] {
 function SkillBadge({ skill }: { skill: Skill }) {
   return (
     <div className="flex-shrink-0 flex flex-col items-center gap-2 group">
-      <div className="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center transition-all duration-300 group-hover:border-zinc-600 group-hover:bg-zinc-800/60 group-hover:scale-110">
+      <div className="relative overflow-hidden w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center transition-all duration-300 group-hover:border-zinc-600 group-hover:bg-zinc-800/60 group-hover:scale-110">
         {skill.src ? (
           <img
             src={skill.src}
@@ -51,6 +51,7 @@ function SkillBadge({ skill }: { skill: Skill }) {
             {skill.abbr}
           </span>
         )}
+        <span className="skill-shine" aria-hidden="true" />
       </div>
       <span className="text-[11px] text-zinc-600 font-mono group-hover:text-zinc-400 transition-colors duration-200 whitespace-nowrap">
         {skill.name}
@@ -70,8 +71,10 @@ const fadeUp = {
 
 export function Skills() {
   const { t } = useLanguage()
-  const row1 = repeat(ROW1, 4)
-  const row2 = repeat(ROW2, 4)
+  // Even number of copies: the marquee loops after half the row, which must stay wider than
+  // the carousel on wide screens (see .skill-scroll-* in index.css)
+  const row1 = repeat(ROW1, 8)
+  const row2 = repeat(ROW2, 8)
 
   return (
     <section id="skills" className="py-28 border-t border-zinc-800/50">
@@ -111,8 +114,9 @@ export function Skills() {
         </motion.p>
       </div>
 
+      {/* py-2 leaves room inside the clip for the hovered (scaled) icons; -my-2 keeps the layout unchanged */}
       <motion.div
-        className="relative mx-6 md:mx-32 lg:mx-52 overflow-hidden rounded-2xl"
+        className="relative mx-6 md:mx-32 lg:mx-52 -my-2 py-2 overflow-hidden rounded-2xl"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-40px" }}
@@ -120,10 +124,11 @@ export function Skills() {
       >
         <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-black to-transparent pointer-events-none z-10" />
         <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-black to-transparent pointer-events-none z-10" />
-        <div className="flex gap-6 mb-6 skill-scroll-left">
+        {/* w-max + trailing pr-6 (one gap): half the row is exactly four copies, so the loop has no seam */}
+        <div className="flex w-max gap-6 pr-6 mb-6 skill-scroll-left">
           {row1.map((skill, i) => <SkillBadge key={`r1-${i}`} skill={skill} />)}
         </div>
-        <div className="flex gap-6 skill-scroll-right">
+        <div className="flex w-max gap-6 pr-6 skill-scroll-right">
           {row2.map((skill, i) => <SkillBadge key={`r2-${i}`} skill={skill} />)}
         </div>
       </motion.div>

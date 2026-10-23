@@ -53,57 +53,59 @@ export function Projects() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-40px" }}
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
             >
-              <GlowCard className="flex flex-col h-full" glowColor="rainbow">
-                <div
-                  className="h-44 relative overflow-hidden rounded-t-[11px]"
-                  style={{ background: `linear-gradient(135deg, ${project.from}, ${project.to})` }}
-                >
-                  <motion.div
-                    className="absolute inset-0 flex items-center justify-center gap-4 bg-black/70 backdrop-blur-sm"
-                    initial={{ opacity: 0 }}
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.2 }}
+              {/* This outer div is the hover target and never moves; only the inner layer lifts,
+                  so the card can't slide out from under the cursor and flicker at its bottom edge */}
+              <div className="h-full transition-transform duration-300 ease-out group-hover:-translate-y-1.5">
+                <GlowCard className="flex flex-col h-full" glowColor="rainbow">
+                  <div
+                    className="h-44 relative overflow-hidden rounded-t-[11px]"
+                    style={{ background: `linear-gradient(135deg, ${project.from}, ${project.to})` }}
                   >
-                    <motion.a
-                      href={project.github}
-                      className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
+                    <motion.div
+                      className="absolute inset-0 flex items-center justify-center gap-4 bg-black/70 backdrop-blur-sm"
+                      initial={{ opacity: 0 }}
+                      whileHover={{ opacity: 1 }}
+                      transition={{ duration: 0.2 }}
                     >
-                      <GitBranch size={16} />
-                    </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <ExternalLink size={16} />
-                    </motion.a>
-                  </motion.div>
-                  <span className="absolute top-4 right-4 text-white/10 font-bold text-4xl font-mono leading-none">
-                    {String(project.id).padStart(2, "0")}
-                  </span>
-                </div>
-
-                <div className="p-6 flex flex-col gap-3 flex-1">
-                  <h3 className="text-white font-bold text-lg tracking-tight">{t.projects.titles[i]}</h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed flex-1">{t.projects.placeholder}</p>
-                  <div className="flex flex-wrap gap-2 pt-2">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-xs font-mono text-zinc-500 border border-zinc-800 rounded-md px-2 py-0.5"
+                      <motion.a
+                        href={project.github}
+                        className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
                       >
-                        {tag}
-                      </span>
-                    ))}
+                        <GitBranch size={16} />
+                      </motion.a>
+                      <motion.a
+                        href={project.demo}
+                        className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        <ExternalLink size={16} />
+                      </motion.a>
+                    </motion.div>
+                    <span className="absolute top-4 right-4 text-white/10 font-bold text-4xl font-mono leading-none">
+                      {String(project.id).padStart(2, "0")}
+                    </span>
                   </div>
-                </div>
-              </GlowCard>
+
+                  <div className="p-6 flex flex-col gap-3 flex-1">
+                    <h3 className="text-white font-bold text-lg tracking-tight">{t.projects.titles[i]}</h3>
+                    <p className="text-zinc-500 text-sm leading-relaxed flex-1">{t.projects.placeholder}</p>
+                    <div className="flex flex-wrap gap-2 pt-2">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs font-mono text-zinc-500 border border-zinc-800 rounded-md px-2 py-0.5"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </GlowCard>
+              </div>
             </motion.div>
           ))}
         </div>
