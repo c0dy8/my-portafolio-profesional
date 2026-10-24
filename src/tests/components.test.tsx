@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import { LanguageProvider } from '@/context/LanguageContext'
 
 vi.mock('motion/react', async () => {
@@ -94,11 +94,30 @@ describe('Skills', () => {
 })
 
 describe('Projects', () => {
-  it('renders 3 project cards', () => {
+  it('renders all 3 projects', () => {
     render(<Projects />, { wrapper })
-    expect(screen.getByText('Proyecto 01')).toBeInTheDocument()
+    expect(screen.getByText('TreeGold')).toBeInTheDocument()
     expect(screen.getByText('Proyecto 02')).toBeInTheDocument()
     expect(screen.getByText('Proyecto 03')).toBeInTheDocument()
+  })
+
+  it('previews the TreeGold video on its card', () => {
+    const { container } = render(<Projects />, { wrapper })
+    expect(container.querySelector('video')).toHaveAttribute('src', '/projects/treegold.mp4')
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+  })
+
+  it('opens the TreeGold modal from its card and closes it with Escape', () => {
+    render(<Projects />, { wrapper })
+    fireEvent.click(screen.getByRole('button', { name: 'Ver proyecto: TreeGold' }))
+
+    const dialog = screen.getByRole('dialog', { name: 'TreeGold' })
+    expect(within(dialog).getByRole('link', { name: /ver sitio/i })).toHaveAttribute('href', 'https://treegold.shop')
+    expect(within(dialog).getByRole('button', { name: 'Reproducir video' })).toBeInTheDocument()
+    expect(within(dialog).getByRole('button', { name: 'Cerrar' })).toHaveFocus()
+
+    fireEvent.keyDown(window, { key: 'Escape' })
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 
   it('renders section heading', () => {

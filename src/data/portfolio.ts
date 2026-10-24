@@ -1,20 +1,21 @@
+// Title, description and highlights live in translations.ts (projects.items, same order).
+// A project with `video` plays it as the card preview and opens a full-screen modal on click.
 export const projects = [
   {
     id: 1,
-    title: "Proyecto 01",
-    description:
-      "Descripción próximamente. Este espacio está reservado para uno de tus proyectos más destacados.",
-    tags: ["Python", "LangChain", "RAG"],
-    github: "#",
-    demo: "#",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Wompi", "GSAP"],
+    github: "https://github.com/TreeG0ld/TreeGold-Landing-Clientes",
+    demo: "https://treegold.shop",
+    live: true,
+    // Paths inside assets/; ratio is the video's width / height, reserved before it loads
+    video: "projects/treegold.mp4",
+    poster: "projects/treegold-poster.webp",
+    ratio: "1600 / 776",
     from: "#333333",
     to: "#111111",
   },
   {
     id: 2,
-    title: "Proyecto 02",
-    description:
-      "Descripción próximamente. Este espacio está reservado para uno de tus proyectos más destacados.",
     tags: ["JavaScript", "LLMs", "API"],
     github: "#",
     demo: "#",
@@ -23,9 +24,6 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Proyecto 03",
-    description:
-      "Descripción próximamente. Este espacio está reservado para uno de tus proyectos más destacados.",
     tags: ["Python", "Fine-tuning", "LangFuse"],
     github: "#",
     demo: "#",

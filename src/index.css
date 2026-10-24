@@ -78,3 +78,54 @@ body {
   .group:hover .skill-shine { animation: none; }
 }
 
+/* ── Project card <-> modal (View Transitions, driven from Projects.tsx) ── */
+/* The card's surface, video and title get these names right before the swap and the modal
+   carries the same ones, so the browser morphs each into its counterpart. Everything else is
+   the root snapshot, which just crossfades: that fades the backdrop in and out, blur included. */
+::view-transition-group(root),
+::view-transition-group(project-card),
+::view-transition-group(project-media),
+::view-transition-group(project-title) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.32, 0.72, 0, 1);
+}
+/* The surface is a solid rounded box (the modal's background and border) that grows or shrinks
+   between the two rects. Its contents keep their size, pinned top-left, and hand over with a
+   quick crossfade instead of stretching along with it. */
+::view-transition-group(project-card) {
+  z-index: 1;
+  overflow: clip;
+  border-radius: 16px;
+  background: #09090b;
+  box-shadow: 0 0 0 1px #27272a, 0 25px 50px -12px rgb(0 0 0 / 0.6);
+}
+::view-transition-old(project-card),
+::view-transition-new(project-card) {
+  width: 100%;
+  height: 100%;
+  object-fit: none;
+  object-position: left top;
+}
+::view-transition-old(project-card) { animation: project-vt-out 0.15s ease-out both; }
+::view-transition-new(project-card) { animation: project-vt-in 0.25s 0.2s ease-out both; }
+@keyframes project-vt-out { to { opacity: 0; } }
+@keyframes project-vt-in { from { opacity: 0; } }
+
+/* The video and the title travel as a single image instead of crossfading two (two frames of
+   the video, or the small and large text, would ghost). It's always the modal's larger one, so it
+   stays sharp: the new image when opening, the old one when closing. Projects.tsx sets
+   data-project-vt on <html> for the duration. */
+::view-transition-group(project-media),
+::view-transition-group(project-title) { z-index: 2; }
+::view-transition-old(project-media),
+::view-transition-new(project-media),
+::view-transition-old(project-title),
+::view-transition-new(project-title) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html[data-project-vt="open"]::view-transition-old(project-media),
+html[data-project-vt="open"]::view-transition-old(project-title),
+html[data-project-vt="close"]::view-transition-new(project-media),
+html[data-project-vt="close"]::view-transition-new(project-title) { opacity: 0; }
+

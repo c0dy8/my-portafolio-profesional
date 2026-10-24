@@ -29,8 +29,29 @@ export const translations = {
     projects: {
       label: '// proyectos',
       heading: 'Proyectos',
-      titles: ['Proyecto 01', 'Proyecto 02', 'Proyecto 03'],
+      items: [
+        {
+          title: 'TreeGold',
+          kicker: 'E-commerce de joyería · Proyecto para cliente',
+          description: 'Tienda online para una joyería de Medellín con 8 años en el mercado. Los clientes exploran el catálogo, arman su selección y pagan en línea o envían el pedido por WhatsApp; el dueño gestiona productos, precios, fotos y promociones desde su propio panel.',
+          highlights: [
+            'Pagos en línea con Wompi: precios y stock se validan en el servidor y un webhook verificado confirma cada pedido',
+            'Panel de administración con sesiones firmadas (HMAC), rate limiting y un estudio de fotos que recorta y optimiza en el navegador',
+            'Catálogo mayorista privado para distribuidores, con precios de costo independientes',
+            'PostgreSQL + Prisma, imágenes en ImageKit y despliegue en VPS con Nginx, PM2 y Let\'s Encrypt',
+          ],
+        },
+        { title: 'Proyecto 02', kicker: '', description: '', highlights: [] },
+        { title: 'Proyecto 03', kicker: '', description: '', highlights: [] },
+      ],
       placeholder: 'Descripción próximamente. Este espacio está reservado para uno de mis proyectos más destacados.',
+      live: 'En producción',
+      open: 'Ver proyecto',
+      close: 'Cerrar',
+      visit: 'Ver sitio',
+      code: 'Código',
+      play: 'Reproducir video',
+      pause: 'Pausar video',
     },
     experience: {
       label: '// experiencia',
@@ -84,8 +105,29 @@ export const translations = {
     projects: {
       label: '// projects',
       heading: 'Projects',
-      titles: ['Project 01', 'Project 02', 'Project 03'],
+      items: [
+        {
+          title: 'TreeGold',
+          kicker: 'Jewelry e-commerce · Client project',
+          description: 'Online store for a Medellín jewelry business with 8 years in the market. Customers browse the catalog, build their selection, and pay online or send the order via WhatsApp, while the owner manages products, prices, photos, and promotions from a custom admin panel.',
+          highlights: [
+            'Online payments with Wompi: prices and stock are validated server-side and a verified webhook confirms every order',
+            'Admin panel with HMAC-signed sessions, rate limiting, and a photo studio that crops and optimizes images in the browser',
+            'Private wholesale catalog for distributors, with separate cost pricing',
+            'PostgreSQL + Prisma, ImageKit-hosted images, and VPS deployment with Nginx, PM2, and Let\'s Encrypt',
+          ],
+        },
+        { title: 'Project 02', kicker: '', description: '', highlights: [] },
+        { title: 'Project 03', kicker: '', description: '', highlights: [] },
+      ],
       placeholder: 'Description coming soon. This space is reserved for one of my most notable projects.',
+      live: 'Live',
+      open: 'View project',
+      close: 'Close',
+      visit: 'Visit site',
+      code: 'Code',
+      play: 'Play video',
+      pause: 'Pause video',
     },
     experience: {
       label: '// experience',

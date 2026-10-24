@@ -28,7 +28,14 @@ Inteligencia Artificial / ML:
 - LLMs — integración y uso de modelos como GPT-4, Claude, etc.
 
 ━━━ PROYECTOS ━━━
-Actualmente tiene 3 proyectos en desarrollo. Los detalles completos estarán disponibles próximamente en el portafolio. Las tecnologías involucradas incluyen Python, LangChain, RAG, JavaScript, LLMs y LangFuse.
+1. TreeGold — e-commerce de joyería (proyecto para cliente, en producción en https://treegold.shop)
+- Tienda online para una joyería de Medellín con 8 años en el mercado: los clientes exploran el catálogo, arman su selección y pagan en línea con Wompi o envían el pedido por WhatsApp.
+- Pagos con Wompi: precios y stock se validan en el servidor y un webhook verificado confirma cada pedido.
+- Panel de administración propio para productos, precios, fotos y promociones, con sesiones firmadas (HMAC), rate limiting y un estudio de fotos que recorta y optimiza las imágenes en el navegador.
+- Catálogo mayorista privado para distribuidores, con precios de costo independientes.
+- Stack: Next.js 15, TypeScript, Tailwind, GSAP + Motion, Zustand, PostgreSQL (Supabase) + Prisma, ImageKit. Desplegado en un VPS con Nginx, PM2 y Let's Encrypt.
+
+Hay otros proyectos en camino (con tecnologías como Python, LangChain, RAG y LLMs); sus detalles se publicarán pronto en el portafolio.
 
 ━━━ CONTACTO ━━━
 Email: santigovanegas11@gmail.com

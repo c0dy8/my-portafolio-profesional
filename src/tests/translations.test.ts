@@ -50,9 +50,13 @@ describe('Translations — data integrity', () => {
     en.experience.descriptions.forEach(d => expect(d.length).toBeGreaterThan(50))
   })
 
-  it('projects has 3 titles in both languages', () => {
-    expect(es.projects.titles).toHaveLength(3)
-    expect(en.projects.titles).toHaveLength(3)
+  it('projects has 3 items in both languages', () => {
+    expect(es.projects.items).toHaveLength(3)
+    expect(en.projects.items).toHaveLength(3)
+    es.projects.items.forEach((item, i) => {
+      expect(item.title).toBeTruthy()
+      expect(en.projects.items[i].highlights).toHaveLength(item.highlights.length)
+    })
   })
 
   it('contact has heading and subheading in both languages', () => {
