@@ -38,11 +38,11 @@ describe('Translations — data integrity', () => {
     })
   })
 
-  it('experience has 3 roles and 3 descriptions in both languages', () => {
-    expect(es.experience.roles).toHaveLength(3)
-    expect(en.experience.roles).toHaveLength(3)
-    expect(es.experience.descriptions).toHaveLength(3)
-    expect(en.experience.descriptions).toHaveLength(3)
+  it('experience has 4 roles and 4 descriptions in both languages', () => {
+    expect(es.experience.roles).toHaveLength(4)
+    expect(en.experience.roles).toHaveLength(4)
+    expect(es.experience.descriptions).toHaveLength(4)
+    expect(en.experience.descriptions).toHaveLength(4)
   })
 
   it('experience descriptions are not empty', () => {

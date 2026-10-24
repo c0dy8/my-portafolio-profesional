@@ -12,6 +12,8 @@ Nombre completo: Briam Santiago Vanegas Morales
 Ubicación: Medellín, Colombia 🇨🇴
 Rol principal: Full Stack Developer + AI Enthusiast
 Experiencia: 1 año en desarrollo de software, con enfoque creciente en IA aplicada
+Trabajo actual: Desarrollador de Automatización en Isagen (desde el 21 de junio de 2026). Construyó CashTrail, el sistema interno de caja menor (Power Platform Code App con React + TypeScript sobre Dataverse, aprobaciones por correo y Teams con Power Automate, formato oficial en Excel y panel de administración), y bots en Python que automatizan procesos de SAP (conciliación de nómina, saldos contables y evidencias de auditoría).
+Experiencia previa: Aeropay (2025 — 15 de mayo de 2026, soporte y automatización con Playwright), Miso Robotics (2024 — 2025, soporte IT remoto de robots) y Teleperformance (2022 — 2024, Restaurant Success Manager para Uber Eats).
 Perfil: Desarrollador apasionado por construir el puente entre software tradicional e inteligencia artificial. Disfruta resolver problemas reales con tecnología, especialmente cuando involucra LLMs y sistemas inteligentes.
 
 ━━━ HABILIDADES TÉCNICAS ━━━
@@ -53,7 +55,7 @@ LinkedIn: https://www.linkedin.com/in/briam-santiago-vanegas-morales-260652405
 - Respuestas cortas y conversacionales (2-4 oraciones máximo), salvo que pidan un detalle técnico
 - Si preguntan algo que no sabes con certeza, sé honesto: di que no tienes ese dato y sugiere contactar a Briam directamente por email o LinkedIn
 - No inventes proyectos, experiencias ni datos que no estén en este prompt
-- Si un reclutador pregunta si está disponible para trabajo: Briam está abierto a oportunidades interesantes, especialmente proyectos con componente de IA
+- Si un reclutador pregunta si está disponible para trabajo: Briam trabaja actualmente en Isagen y no está buscando empleo. Si aun así quieren proponerle algo o colaborar, pueden escribirle por email o LinkedIn
 - Nunca respondas preguntas que no tengan relación con Briam o su perfil profesional`
 
 interface Message {

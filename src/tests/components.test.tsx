@@ -127,8 +127,9 @@ describe('Projects', () => {
 })
 
 describe('Experience', () => {
-  it('renders all 3 companies', () => {
+  it('renders all 4 companies', () => {
     render(<Experience />, { wrapper })
+    expect(screen.getByText('Isagen')).toBeInTheDocument()
     expect(screen.getByText('Aeropay')).toBeInTheDocument()
     expect(screen.getByText('Miso Robotics')).toBeInTheDocument()
     expect(screen.getByText('Teleperformance')).toBeInTheDocument()
@@ -141,11 +142,12 @@ describe('Experience', () => {
 
   it('shows "Present" in first job period', () => {
     render(<Experience />, { wrapper })
-    expect(screen.getByText('2025 — Present')).toBeInTheDocument()
+    expect(screen.getByText('2026 — Present')).toBeInTheDocument()
   })
 
   it('renders job roles from translations', () => {
     render(<Experience />, { wrapper })
+    expect(screen.getByText('Desarrollador de Automatización')).toBeInTheDocument()
     expect(screen.getByText('Especialista de Soporte & Automatización')).toBeInTheDocument()
   })
 })

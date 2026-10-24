@@ -1,5 +1,5 @@
 import { motion } from "motion/react"
-import { Download, User } from "lucide-react"
+import { Download, Lock, User } from "lucide-react"
 import { ProfileCard } from "@/components/ui/ProfileCard"
 import { useLanguage } from "@/context/LanguageContext"
 
@@ -98,7 +98,12 @@ export function About() {
               name="Briam Vanegas"
               title="Full Stack Developer & AI Engineer"
               handle="bsvanegas"
-              status={t.about.status}
+              status={
+                <span className="pc-status-label">
+                  <Lock size={12} strokeWidth={2.5} className="text-red-500" aria-hidden="true" />
+                  {t.about.status}
+                </span>
+              }
               contactText={t.about.contact_text}
               behindGlowEnabled={true}
               behindGlowColor="rgba(200, 200, 200, 0.25)"

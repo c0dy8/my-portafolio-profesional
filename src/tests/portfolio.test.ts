@@ -27,7 +27,7 @@ describe('Portfolio data — structure', () => {
 
   describe('experience', () => {
     it('has exactly 3 entries', () => {
-      expect(experience).toHaveLength(3)
+      expect(experience).toHaveLength(4)
     })
 
     it('each entry has company and period', () => {
@@ -38,16 +38,18 @@ describe('Portfolio data — structure', () => {
       })
     })
 
-    it('companies are Aeropay, Miso Robotics, Teleperformance', () => {
+    it('companies are Isagen, Aeropay, Miso Robotics, Teleperformance', () => {
       const companies = experience.map(e => e.company)
+      expect(companies).toContain('Isagen')
       expect(companies).toContain('Aeropay')
       expect(companies).toContain('Miso Robotics')
       expect(companies).toContain('Teleperformance')
     })
 
-    it('most recent job is first', () => {
-      expect(experience[0].company).toBe('Aeropay')
+    it('most recent job is first and the only current one', () => {
+      expect(experience[0].company).toBe('Isagen')
       expect(experience[0].period).toContain('Present')
+      expect(experience.filter(e => e.period.includes('Present'))).toHaveLength(1)
     })
   })
 

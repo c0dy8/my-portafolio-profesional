@@ -310,6 +310,8 @@
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
+  /* Matches the big avatar, which the luminosity blend turns monochrome */
+  filter: grayscale(1);
 }
 
 .pc-user-text {
@@ -330,6 +332,13 @@
   font-size: 14px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1;
+}
+
+/* An icon + text status: `.pc-card *` makes every element a stacked grid, so lay this one out inline */
+.pc-status-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
 }
 
 .pc-contact-btn {

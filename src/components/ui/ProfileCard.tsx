@@ -41,7 +41,7 @@ interface ProfileCardProps {
   name?: string
   title?: string
   handle?: string
-  status?: string
+  status?: React.ReactNode
   contactText?: string
   showUserInfo?: boolean
   onContactClick?: () => void
@@ -321,33 +321,35 @@ const ProfileCardComponent = ({
                   ;(e.target as HTMLImageElement).style.display = 'none'
                 }}
               />
-              {showUserInfo && (
-                <div className="pc-user-info">
-                  <div className="pc-user-details">
-                    <div className="pc-mini-avatar">
-                      <img
-                        src={miniAvatarUrl || avatarUrl}
-                        alt={`${name || 'User'} mini avatar`}
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="pc-user-text">
-                      <div className="pc-handle">@{handle}</div>
-                      <div className="pc-status">{status}</div>
-                    </div>
-                  </div>
-                  <button
-                    className="pc-contact-btn"
-                    onClick={handleContactClick}
-                    style={{ pointerEvents: 'auto' }}
-                    type="button"
-                    aria-label={`Contact ${name || 'user'}`}
-                  >
-                    {contactText}
-                  </button>
-                </div>
-              )}
             </div>
+            {/* Outside the avatar layer: its luminosity blend would strip the colour from the status
+                (the red lock). Same containing block, so it sits exactly where it did. */}
+            {showUserInfo && (
+              <div className="pc-user-info">
+                <div className="pc-user-details">
+                  <div className="pc-mini-avatar">
+                    <img
+                      src={miniAvatarUrl || avatarUrl}
+                      alt={`${name || 'User'} mini avatar`}
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="pc-user-text">
+                    <div className="pc-handle">@{handle}</div>
+                    <div className="pc-status">{status}</div>
+                  </div>
+                </div>
+                <button
+                  className="pc-contact-btn"
+                  onClick={handleContactClick}
+                  style={{ pointerEvents: 'auto' }}
+                  type="button"
+                  aria-label={`Contact ${name || 'user'}`}
+                >
+                  {contactText}
+                </button>
+              </div>
+            )}
             <div className="pc-content">
               <div className="pc-details">
                 <h3>{name}</h3>

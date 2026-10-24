@@ -35,16 +35,21 @@ export const projects = [
 export const experience = [
   {
     id: 1,
-    company: "Aeropay",
-    period: "2025 — Present",
+    company: "Isagen",
+    period: "2026 — Present",
   },
   {
     id: 2,
+    company: "Aeropay",
+    period: "2025 — 2026",
+  },
+  {
+    id: 3,
     company: "Miso Robotics",
     period: "2024 — 2025",
   },
   {
-    id: 3,
+    id: 4,
     company: "Teleperformance",
     period: "2022 — 2024",
   },

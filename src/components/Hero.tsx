@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "motion/react"
+import { Lock } from "lucide-react"
 import { MagicTextReveal } from "@/components/ui/magic-text-reveal"
 import DotGrid from "@/components/ui/DotGrid"
 import { useLanguage } from "@/context/LanguageContext"
@@ -44,7 +45,15 @@ export function Hero() {
 
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center">
-      <div className="absolute inset-0">
+      {/* The grid fades out over the bottom of the hero so it melts into About instead of
+          ending on a hard edge */}
+      <div
+        className="absolute inset-0"
+        style={{
+          maskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 50%, transparent 100%)",
+        }}
+      >
         <DotGrid
           dotSize={4}
           gap={28}
@@ -66,14 +75,14 @@ export function Hero() {
           animate={ready ? { opacity: 1, y: 0 } : undefined}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          {/* Live pulse dot */}
+          {/* Live pulse dot (red: not available) */}
           <span className="relative flex h-2 w-2">
             <motion.span
-              className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
+              className="absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"
               animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
               transition={{ duration: 1.6, repeat: Infinity, ease: "easeOut" }}
             />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
           </span>
 
           {/* Flag + city */}
@@ -85,9 +94,10 @@ export function Hero() {
           {/* Divider */}
           <span className="w-px h-3 bg-zinc-700" />
 
-          {/* Available status */}
-          <span className="text-zinc-500 text-xs font-mono">
-            available
+          {/* Availability status */}
+          <span className="text-zinc-500 text-xs font-mono flex items-center gap-1.5">
+            <Lock size={11} strokeWidth={2.5} className="text-red-500" aria-hidden="true" />
+            {t.hero.status}
           </span>
         </motion.div>
 
